@@ -17,13 +17,19 @@ document.body.appendChild(button);
 // Counter
 let beers = 0;
 
-const counter = document.createElement('counting');
+const counter = document.createElement("counting");
 counter.textContent = "Beers: 0";
 app.append(counter);
 
 button.addEventListener("click", () => {
-    beers ++;
-    counter.textContent = 'Beers: ' + beers;
-})
+  beers++;
+  counter.textContent = "Beers: " + beers;
+});
 
 // Auto Counter
+function autoCount() {
+    beers++;
+    counter.textContent = "Beers: " + beers;
+}
+const autoInterval = 5000;
+setInterval (autoCount, autoInterval)
