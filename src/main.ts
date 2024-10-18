@@ -55,6 +55,18 @@ const availableItems = [
     generation: 50,
     purchased: 0,
   },
+  {
+    button: createUpgradeButton("Winery", 5000, 100),
+    cost: 5000,
+    generation: 100,
+    purchased: 0,
+  },
+  {
+    button: createUpgradeButton("Distillery", 10000, 1000),
+    cost: 10000,
+    generation: 1000,
+    purchased: 0,
+  },
 ];
 
 function createUpgradeButton(
