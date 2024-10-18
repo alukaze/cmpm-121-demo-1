@@ -11,8 +11,8 @@ app.append(header);
 
 // Button
 const button = document.createElement("button");
-button.textContent = "🍺";
-button.style.fontSize = "70px";
+button.textContent = "🍻";
+button.style.fontSize = "200px";
 button.style.padding = "10px 10px";
 app.appendChild(button);
 
@@ -38,19 +38,19 @@ button.addEventListener("click", () => {
 // Upgrade Button
 const upgrades = [
   {
-    button: createUpgradeButton("Upgrade A", 10, 0.1),
+    button: createUpgradeButton("Bar", 10, 0.1),
     cost: 10,
     generation: 0.1,
     purchased: 0,
   },
   {
-    button: createUpgradeButton("Upgrade B", 100, 2.0),
+    button: createUpgradeButton("Pub", 100, 2.0),
     cost: 100,
     generation: 2.0,
     purchased: 0,
   },
   {
-    button: createUpgradeButton("Upgrade C", 1000, 50),
+    button: createUpgradeButton("Brewery", 1000, 50),
     cost: 1000,
     generation: 50,
     purchased: 0,
@@ -71,7 +71,7 @@ function createUpgradeButton(
     if (beers >= cost) {
       beers -= cost;
       cost = Math.round(cost * 1.15 * 100) / 100;
-      const upgrade = upgrades.find(upg => upg.button === button);
+      const upgrade = upgrades.find((upg) => upg.button === button);
       if (upgrade) {
         upgrade.cost = cost;
         upgrade.purchased += 1; // Increment the purchased count
