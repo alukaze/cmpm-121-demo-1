@@ -36,7 +36,7 @@ button.addEventListener("click", () => {
 });
 
 // Upgrade Button
-const upgrades = [
+const availableItems = [
   {
     button: createUpgradeButton("Bar", 10, 0.1),
     cost: 10,
@@ -71,7 +71,7 @@ function createUpgradeButton(
     if (beers >= cost) {
       beers -= cost;
       cost = Math.round(cost * 1.15 * 100) / 100;
-      const upgrade = upgrades.find((upg) => upg.button === button);
+      const upgrade = availableItems.find((upg) => upg.button === button);
       if (upgrade) {
         upgrade.cost = cost;
         upgrade.purchased += 1; // Increment the purchased count
@@ -86,7 +86,7 @@ function createUpgradeButton(
   return button;
 }
 function unlockUpgrades() {
-  upgrades.forEach((upgrade) => {
+  availableItems.forEach((upgrade) => {
     upgrade.button.disabled = beers < upgrade.cost;
   });
 }
