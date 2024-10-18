@@ -38,31 +38,31 @@ button.addEventListener("click", () => {
 // Upgrade Button
 const availableItems = [
   {
-    button: createUpgradeButton("Bar", 10, 0.1),
+    button: createUpgradeButton("Bar", 10, 0.1, "This is my bar!"),
     cost: 10,
     generation: 0.1,
     purchased: 0,
   },
   {
-    button: createUpgradeButton("Pub", 100, 2.0),
+    button: createUpgradeButton("Pub", 100, 2.0, "Welcome to the pub!"),
     cost: 100,
     generation: 2.0,
     purchased: 0,
   },
   {
-    button: createUpgradeButton("Brewery", 1000, 50),
+    button: createUpgradeButton("Brewery", 1000, 50, "Freshly brewed!"),
     cost: 1000,
     generation: 50,
     purchased: 0,
   },
   {
-    button: createUpgradeButton("Winery", 5000, 100),
+    button: createUpgradeButton("Winery", 5000, 100, "Fine wines!"),
     cost: 5000,
     generation: 100,
     purchased: 0,
   },
   {
-    button: createUpgradeButton("Distillery", 10000, 1000),
+    button: createUpgradeButton("Distillery", 10000, 1000, "Distilled spirits!"),
     cost: 10000,
     generation: 1000,
     purchased: 0,
@@ -73,11 +73,17 @@ function createUpgradeButton(
   text: string,
   cost: number,
   generation: number,
+  description: string,
 ): HTMLButtonElement {
   const button = document.createElement("button");
   button.innerHTML = `${text}<br>Cost: ${cost}<br>Purchased: 0`;
   button.disabled = true;
   app.appendChild(button);
+
+  const counter = document.createElement("div");
+  counter.textContent = description;
+  counter.style.fontSize = "15px";
+  app.append(counter);
 
   button.addEventListener("click", () => {
     if (beers >= cost) {
