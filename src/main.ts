@@ -62,7 +62,12 @@ const upgradeItems = [
     purchased: 0,
   },
   {
-    button: createUpgradeButton("Distillery", 10000, 1000, "Distilled spirits!"),
+    button: createUpgradeButton(
+      "Distillery",
+      10000,
+      1000,
+      "Distilled spirits!",
+    ),
     baseCost: 10000,
     generation: 1000,
     purchased: 0,
@@ -82,7 +87,9 @@ function createUpgradeButton(
   app.appendChild(button);
   app.appendChild(descriptionDiv);
 
-  button.addEventListener("click", () => handleUpgradeClick(button, generation));
+  button.addEventListener("click", () =>
+    handleUpgradeClick(button, generation),
+  );
 
   return button;
 }
@@ -120,7 +127,11 @@ function handleUpgradeClick(button: HTMLButtonElement, generation: number) {
 }
 
 // Update upgrade button text to reflect new cost and purchase count
-function updateUpgradeButton(button: HTMLButtonElement, cost: number, purchased: number) {
+function updateUpgradeButton(
+  button: HTMLButtonElement,
+  cost: number,
+  purchased: number,
+) {
   button.innerHTML = `Cost: ${cost}<br>Purchased: ${purchased}`;
 }
 
